@@ -5,7 +5,7 @@ from django.db import models
 class Hero(models.Model):
 
     name = models.CharField(max_length=100)
-    secret_identity = models.CharField(max_length=100)
+    alter_ego = models.CharField(max_length=100)
     img = models.CharField(max_length=500)
     bio = models.TextField(max_length=500)
     powers = models.CharField(max_length=100)

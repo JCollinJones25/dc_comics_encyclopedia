@@ -3,6 +3,7 @@ from django.views.generic.base import TemplateView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import DetailView
 from .models import Hero
+from django.urls import reverse
 
 # Create your views here.
 
@@ -20,6 +21,21 @@ class HeroesList(TemplateView):
         context['heroes'] = Hero.objects.all()
         return context
 
+class HeroCreate(CreateView):
+    model = Hero
+    fields = ['name', 'alter_ego', 'img', 'bio', 'powers', 'universe', 'affiliations', 'villains']
+    template_name = 'hero_create.html'
+    def get_success_url(self):
+        return reverse('hero_detail', kwargs={'pk': self.object.pk})
+
 class HeroDetail(DetailView):
     model = Hero
     template_name = 'hero_detail.html'
+
+class HeroUpdate(UpdateView):
+    model = Hero
+    fields = ['name', 'alter_ego', 'img', 'bio', 'powers', 'universe', 'affiliations', 'villains']
+    template_name = 'hero_update.html'
+    def get_success_url(self):
+        return reverse('hero_detail', kwargs={'pk': self.object.pk})
+
