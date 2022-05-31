@@ -1,3 +1,4 @@
+from ast import Delete
 from django.views import View
 from django.views.generic.base import TemplateView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
@@ -39,3 +40,7 @@ class HeroUpdate(UpdateView):
     def get_success_url(self):
         return reverse('hero_detail', kwargs={'pk': self.object.pk})
 
+class HeroDelete(DeleteView):
+    model = Hero
+    template_name = 'hero_delete_confirmation.html'
+    success_url = '/heroes/'
