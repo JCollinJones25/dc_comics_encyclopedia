@@ -2,7 +2,7 @@
 {% block title %} Heroes - Home {% endblock %}
 {% block content %}
     {% for hero in heroes %}
-    <h2>{{hero.name}}</h2>
+    <a href="{{hero.id}}"> <h2>{{hero.name}}</h2></a>
     <h3>AKA {{hero.secret_identity}}</h3>
     <img class="hero-img" src="{{hero.img}}" alt="{{hero.name}}"/>
     {% endfor %}

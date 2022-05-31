@@ -1,7 +1,7 @@
-from django.shortcuts import render
 from django.views import View
 from django.views.generic.base import TemplateView
-from django.http import HttpResponse
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic import DetailView
 from .models import Hero
 
 # Create your views here.
@@ -19,3 +19,7 @@ class HeroesList(TemplateView):
         context = super().get_context_data(**kwargs)
         context['heroes'] = Hero.objects.all()
         return context
+
+class HeroDetail(DetailView):
+    model = Hero
+    template_name = 'hero_detail.html'

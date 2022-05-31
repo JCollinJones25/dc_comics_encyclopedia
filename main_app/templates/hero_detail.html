@@ -1,0 +1,14 @@
+{%extends 'base.html'%}
+{% block title %} {{hero.name}} {% endblock %}
+{% block content %}
+    
+    <h2>{{hero.name}}</h2>
+    <h3>AKA {{hero.secret_identity}}</h3>
+    <h3>{{hero.universe}}</h3>
+    <h3>{{hero.affilliations}}</h3>
+    <img class="hero-img" src="{{hero.img}}" alt="{{hero.name}}"/>
+    <p>{{hero.bio}}</p>
+    <p>{{hero.powers}}</p>
+    <p>{{hero.villains}}</p>
+
+{% endblock %}
