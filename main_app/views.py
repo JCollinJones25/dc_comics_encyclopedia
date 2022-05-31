@@ -24,7 +24,7 @@ class HeroesList(TemplateView):
 
 class HeroCreate(CreateView):
     model = Hero
-    fields = ['name', 'alter_ego', 'img', 'bio', 'powers', 'universe', 'affiliations', 'villains']
+    fields = ['name', 'alter_ego', 'img', 'bio', 'powers', 'universe', 'affiliations', 'enemies']
     template_name = 'hero_create.html'
     def get_success_url(self):
         return reverse('hero_detail', kwargs={'pk': self.object.pk})
@@ -35,7 +35,7 @@ class HeroDetail(DetailView):
 
 class HeroUpdate(UpdateView):
     model = Hero
-    fields = ['name', 'alter_ego', 'img', 'bio', 'powers', 'universe', 'affiliations', 'villains']
+    fields = ['name', 'alter_ego', 'img', 'bio', 'powers', 'universe', 'affiliations', 'enemies']
     template_name = 'hero_update.html'
     def get_success_url(self):
         return reverse('hero_detail', kwargs={'pk': self.object.pk})
@@ -44,3 +44,4 @@ class HeroDelete(DeleteView):
     model = Hero
     template_name = 'hero_delete_confirmation.html'
     success_url = '/heroes/'
+
