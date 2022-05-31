@@ -52,3 +52,6 @@ class VillainsList(TemplateView):
         context['villains'] = Villain.objects.all()
         return context
 
+class VillainDetail(DetailView):
+    model = Villain
+    template_name = 'villain_detail.html'

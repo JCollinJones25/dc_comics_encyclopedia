@@ -1,0 +1,21 @@
+{%extends 'base.html'%}
+{% block title %} {{villain.name}} {% endblock %}
+{% block content %}
+    <a href="/villains">
+        <p>Back to Villain List</p>
+    </a>
+    <h2>{{villain.name}}</h2>
+    <h3>{{villain.universe}}</h3>
+    <h3>Known Affiliations - {{villain.affiliations}}</h3>
+    <img class="villain-img" src="{{villain.img}}" alt="{{villain.name}}"/>
+    <p>{{villain.bio}}</p>
+    <p>Abilities - {{villain.powers}}</p>
+    <p>Nemesis - {{villain.nemesis}}</p>
+    <a href='/villaines/{{villain.id}}/update'>
+        <h4>Edit {{villain.name}}</h4>
+    </a>
+    <a href='/villaines/{{villain.id}}/delete'>
+        <h4>Delete {{villain.name}}</h4>
+    </a>
+    
+{% endblock %}
