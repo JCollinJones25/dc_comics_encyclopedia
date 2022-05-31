@@ -1,0 +1,11 @@
+{%extends 'base.html'%}
+{% block title %} Villains {% endblock %}
+{% block content %}
+    <a href="/">
+        <p>Back to Home </p>
+    </a>
+    {% for villain in villains %}
+        <a href="{{villain.id}}"> <h2>{{villain.name}}</h2></a>
+        <img class="hero-img" src="{{villain.img}}" alt="{{villain.name}}"/>
+    {% endfor %}
+{% endblock %}
