@@ -62,3 +62,10 @@ class VillainCreate(CreateView):
     template_name = 'villain_create.html'
     def get_success_url(self):
         return reverse('villain_detail', kwargs= {'pk': self.object.pk})
+
+class VillainUpdate(UpdateView):
+    model = Villain
+    fields = ['name', 'img', 'bio', 'powers', 'universe', 'affiliations', 'nemesis', ]
+    template_name = 'villain_update.html'
+    def get_success_url(self):
+        return reverse('villain_detail', kwargs= {'pk': self.object.pk})
