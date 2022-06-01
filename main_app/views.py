@@ -3,7 +3,7 @@ from django.views import View
 from django.views.generic.base import TemplateView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import DetailView
-from .models import Hero, Villain, Comic
+from .models import Hero, Villain, HeroTeam, VillainTeam
 from django.urls import reverse
 from django.shortcuts import redirect
 
@@ -13,7 +13,8 @@ class Home(TemplateView):
     template_name = 'home.html'
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['comics'] = Comic.objects.all()
+        context['heroteams'] = HeroTeam.objects.all()
+        context['villainteams'] = VillainTeam.objects.all()
         return context
 
 class About(TemplateView):
@@ -80,13 +81,13 @@ class VillainDelete(DeleteView):
     template_name = 'villain_delete_confirmation.html'
     success_url = '/villains/'
 
-class ComicCreate(CreateView):
-    model = Comic
+class HeroTeamCreate(CreateView):
+    model = HeroTeam
     fields = ['title', 'img', 'author', 'year', 'heroes']
-    template_name = 'comic_create.html'
+    template_name = 'heroteam_create.html'
     def get_success_url(self):
         return reverse('comic_detail', kwargs={'pk': self.object.pk})
 
-class ComicDetail(DetailView):
-    model = Comic
-    template_name = 'comic_detail.html'
+class HeroTeamDetail(DetailView):
+    model = HeroTeam
+    template_name = 'heroteam_detail.html'

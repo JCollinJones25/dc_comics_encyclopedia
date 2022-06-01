@@ -8,8 +8,7 @@ class Hero(models.Model):
     secret_identity = models.CharField(max_length=100)
     img = models.CharField(max_length=500)
     bio = models.TextField(max_length=500)
-    powers = models.CharField(max_length=200)
-    universe = models.CharField(max_length=50)
+    abilties = models.CharField(max_length=200)
     affiliations = models.TextField(max_length=500)
     villains = models.TextField(max_length=500)
 
@@ -24,10 +23,9 @@ class Villain(models.Model):
     name = models.CharField(max_length=150)
     img = models.CharField(max_length=500)
     bio = models.TextField(max_length=500)
-    powers = models.CharField(max_length=200)
-    universe = models.CharField(max_length=50)
+    abilities = models.CharField(max_length=200)
     affiliations = models.TextField(max_length=500)
-    nemesis = models.ForeignKey(Hero, on_delete=models.CASCADE, related_name='enemies')
+    nemesis = models.ForeignKey(Hero, on_delete=models.CASCADE, related_name='hero')
 
     def __str__(self):
         return self.name
@@ -35,13 +33,20 @@ class Villain(models.Model):
     class Meta: 
         ordering = ['name']
 
-class Comic(models.Model):
 
-    title = models.CharField(max_length=100)
+class HeroTeam(models.Model):
+
+    name = models.CharField(max_length=100)
     img = models.CharField(max_length=500, default='https://cdn.europosters.eu/image/1300/posters/dc-comics-rebirth-i80856.jpg')
-    author = models.TextField(max_length=100, default='not entered')
-    year = models.CharField(max_length=20, default='TBD') 
     heroes = models.ManyToManyField(Hero)
+
+    def __str__(self):
+        return self.title
+
+class VillainTeam(models.Model):
+
+    name = models.CharField(max_length=100)
+    img = models.CharField(max_length=500, default='https://cdn.europosters.eu/image/1300/posters/dc-comics-rebirth-i80856.jpg')
     villains = models.ManyToManyField(Villain)
 
     def __str__(self):

@@ -1,19 +1,22 @@
 {%extends 'base.html'%}
 {% block title %} DC Comics - Home {% endblock %}
 {% block content %}
-<div class="add-new-container">
-        <form action="{% url 'comic_create' %}">
-            <input class='add-new' type="submit" value="+"/>
-        </form>
+<!-- <div class="add-new-container">
+    <form action="{% url 'heroteam_create' %}">
+        <input class='add-new' type="submit" value="+"/>
+    </form>
+    <form action="{% url 'villainteam_create' %}">
+        <input class='add-new' type="submit" value="+"/>
+    </form>
 </div>
 <div class="list-container">
-    {% for comic in comics %}
-        <div class="list-item">
-            <a href="{% url 'comic_detail' comic.pk %}">
-                <h3>{{comic.title}}</h3>
-                <img src="{{comic.img}}" alt={{comic.title}}/>
-            </a>
-        </div>
-    {% endfor %}
-</div>
+{% for comic in comics %}
+    <div class="list-item">
+        <a href="{% url 'comic_detail' comic.pk %}">
+            <h3>{{comic.title}}</h3>
+            <img src="{{comic.img}}" alt={{comic.title}}/>
+        </a>
+    </div>
+{% endfor %}
+</div> -->
 {% endblock %}
