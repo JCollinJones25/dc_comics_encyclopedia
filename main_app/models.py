@@ -8,7 +8,7 @@ class Hero(models.Model):
     secret_identity = models.CharField(max_length=100)
     img = models.CharField(max_length=500)
     bio = models.TextField(max_length=500)
-    abilties = models.CharField(max_length=200)
+    abilities = models.CharField(max_length=200)
     affiliations = models.TextField(max_length=500)
     villains = models.TextField(max_length=500)
 
@@ -41,7 +41,7 @@ class HeroTeam(models.Model):
     heroes = models.ManyToManyField(Hero)
 
     def __str__(self):
-        return self.title
+        return self.name
 
 class VillainTeam(models.Model):
 
@@ -50,4 +50,4 @@ class VillainTeam(models.Model):
     villains = models.ManyToManyField(Villain)
 
     def __str__(self):
-        return self.title
+        return self.name

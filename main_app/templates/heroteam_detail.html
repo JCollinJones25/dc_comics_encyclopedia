@@ -2,24 +2,21 @@
 {% block title %} {{team.title}} {% endblock %}
 {% block content %}
 <div class="details">
-    <h2>{{team.title}}</h2>
-    <h3>{{team.universe}}</h3>
-    <img class="team-img" src="{{team.img}}" alt="{{team.title}}"/>
-    <p>{{team.year}}</p>
-    <p>{{team.author}}</p>
-    <p>Characters -</p>
-    {% for hero in heroes %}
-    <p>{{team.hero}}</p>
+    <h2>{{heroteam.name}}</h2>
+    <img class="heroteam-img" src="{{heroteam.img}}" alt="{{heroteam.title}}"/>
+    <p>Members -</p>
+    {% for hero in heroteam.heroes.all %}
+    <p>{{hero}}</p>
     {% endfor %}
     <div class="edit-delete">
         <div class='edit'>
-            <a href="/teames/{{team.id}}/update">
-                <p>Edit {{team.title}}</p>
+            <a href="/heroteames/{{heroteam.id}}/update">
+                <p>Edit {{heroteam.title}}</p>
             </div>
         </a>
         <div class='delete'>
-            <a href="/teames/{{team.id}}/delete">
-                <p>Delete {{team.title}}</p>
+            <a href="/heroteams/{{heroteam.id}}/delete">
+                <p>Delete {{heroteam.title}}</p>
             </a>
         </div>
     </div>

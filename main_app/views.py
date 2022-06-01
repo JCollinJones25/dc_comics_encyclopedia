@@ -30,7 +30,7 @@ class HeroesList(TemplateView):
 
 class HeroCreate(CreateView):
     model = Hero
-    fields = ['name', 'secret_identity', 'img', 'bio', 'powers', 'universe', 'affiliations', 'villains']
+    fields = ['name', 'secret_identity', 'img', 'bio', 'abilities', 'affiliations', 'villains']
     template_name = 'hero_create.html'
     def get_success_url(self):
         return reverse('hero_detail', kwargs={'pk': self.object.pk})
@@ -41,7 +41,7 @@ class HeroDetail(DetailView):
 
 class HeroUpdate(UpdateView):
     model = Hero
-    fields = ['name', 'secret_identity', 'img', 'bio', 'powers', 'universe', 'affiliations', 'villains']
+    fields = ['name', 'secret_identity', 'img', 'bio', 'abilities', 'affiliations', 'villains']
     template_name = 'hero_update.html'
     def get_success_url(self):
         return reverse('hero_detail', kwargs={'pk': self.object.pk})
@@ -64,14 +64,14 @@ class VillainDetail(DetailView):
 
 class VillainCreate(CreateView):
     model = Villain
-    fields = ['name', 'img', 'bio', 'powers', 'universe', 'affiliations', 'nemesis', ]
+    fields = ['name', 'img', 'bio', 'abilities', 'affiliations', 'nemesis']
     template_name = 'villain_create.html'
     def get_success_url(self):
         return reverse('villain_detail', kwargs= {'pk': self.object.pk})
 
 class VillainUpdate(UpdateView):
     model = Villain
-    fields = ['name', 'img', 'bio', 'powers', 'universe', 'affiliations', 'nemesis', ]
+    fields = ['name', 'img', 'bio', 'abilities', 'affiliations', 'nemesis']
     template_name = 'villain_update.html'
     def get_success_url(self):
         return reverse('villain_detail', kwargs= {'pk': self.object.pk})
@@ -83,11 +83,26 @@ class VillainDelete(DeleteView):
 
 class HeroTeamCreate(CreateView):
     model = HeroTeam
-    fields = ['title', 'img', 'author', 'year', 'heroes']
+    fields = ['name', 'img', 'heroes']
     template_name = 'heroteam_create.html'
     def get_success_url(self):
-        return reverse('comic_detail', kwargs={'pk': self.object.pk})
+        return reverse('heroteam_detail', kwargs={'pk': self.object.pk})
 
 class HeroTeamDetail(DetailView):
     model = HeroTeam
     template_name = 'heroteam_detail.html'
+
+class HeroTeamUpdate(UpdateView):
+    model = HeroTeam
+    fields = ['name', 'img', 'bio', 'abilities', 'affiliations', 'nemesis']
+    template_name = 'heroteam_update.html'
+    def get_success_url(self):
+        return reverse('heroteam_detail', kwargs= {'pk': self.object.pk})
+
+class HeroTeamDelete(DeleteView):
+    model = HeroTeam
+    template_name = 'heroteam_delete_confirmation.html'
+    success_url = 'home'
+
+
+
