@@ -4,6 +4,9 @@
     <a href="/">
         <p>Back to Home </p>
     </a>
+    <a href="{% url 'villain_create' %}">
+        <p>Add Villain </p>
+    </a>
     {% for villain in villains %}
         <a href="{{villain.id}}"> <h2>{{villain.name}}</h2></a>
         <img class="hero-img" src="{{villain.img}}" alt="{{villain.name}}"/>
