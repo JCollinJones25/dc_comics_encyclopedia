@@ -108,3 +108,9 @@ a {
 .details h3 {
     text-decoration: underline;
 }
+
+.team-ups {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}

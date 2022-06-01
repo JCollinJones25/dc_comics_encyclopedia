@@ -1,12 +1,15 @@
 {%extends 'base.html'%}
 {% block title %} DC Comics - Home {% endblock %}
 {% block content %}
-<div class="add-new-container">
-    <form action="{% url 'heroteam_create' %}">
-        <input class='add-new' type="submit" value="+"/>
-    </form>
+<div class="team-ups">
+    <h2>Hero Team Ups</h2>
+    <div class="add-new-container">
+        <form action="{% url 'heroteam_create' %}">
+            <input class='add-new' type="submit" value="+"/>
+        </form>
+    </div>
 </div>
-<h2>Hero Team Ups</h2>
+<hr>
 <div class="list-container">
 {% for team in heroteams %}
     <div class="list-item">
@@ -16,7 +19,16 @@
         </a>
     </div>
 {% endfor %}
-<h2>Villain Team Ups</h2>
+</div>
+<div class="team-ups">
+    <h2>Villain Team Ups</h2>
+    <div class="add-new-container">
+        <form action="{% url 'villainteam_create' %}">
+            <input class='add-new' type="submit" value="+"/>
+        </form>
+    </div>
+</div>
+<hr>
 <div class="list-container">
 {% for team in villainteams %}
     <div class="list-item">
