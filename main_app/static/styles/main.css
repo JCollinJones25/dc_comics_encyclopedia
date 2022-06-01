@@ -16,6 +16,13 @@ img {
     margin: 5px;
 }
 
+.villain-thumb {
+    border-radius: 25%;
+    width: 200px;
+    height: 250px;
+    margin: 5px;
+}
+
 .list-container {
     display: flex;
     flex-direction: row;
@@ -96,4 +103,8 @@ a {
     justify-content: center;
     margin: 25px;
     color: white;
+}
+
+.details h3 {
+    text-decoration: underline;
 }

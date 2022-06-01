@@ -1,0 +1,30 @@
+{%extends 'base.html'%}
+{% block title %} {{villainteam.name}} {% endblock %}
+{% block content %}
+<div class="details">
+    <h2>{{villainteam.name}}</h2>
+    <img class="villainteam-img" src="{{villainteam.img}}" alt="{{villainteam.title}}"/>
+    <h3>Members</h3>
+    <div class="list-container">
+
+        {% for villain in villainteam.villains.all %}
+        <a href="/villains/{{villain.id}}"> <h2>{{villain.name}}</h2>
+            <img class="villain-thumb" src="{{villain.img}}" alt="{{villain.name}}"/>
+        </a>
+        {% endfor %}
+    </div>
+    <div class="edit-delete">
+        <div class='edit'>
+            <a href="/villainteams/{{villainteam.id}}/update">
+                <p>Edit {{villainteam.name}}</p>
+            </div>
+        </a>
+        <div class='delete'>
+            <a href="/villainteams/{{villainteam.id}}/delete">
+                <p>Delete {{villainteam.name}}</p>
+            </a>
+        </div>
+    </div>
+</div>
+    
+{% endblock %}

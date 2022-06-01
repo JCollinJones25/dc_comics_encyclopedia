@@ -18,4 +18,8 @@ urlpatterns = [
     path('heroteams/<int:pk>', views.HeroTeamDetail.as_view(), name='heroteam_detail'),
     path('heroteams/<int:pk>/update', views.HeroTeamUpdate.as_view(), name='heroteam_update'),
     path('heroteams/<int:pk>/delete', views.HeroTeamDelete.as_view(), name='heroteam_delete'),
+    path('villainteams/new', views.VillainTeamCreate.as_view(), name='villainteam_create'),
+    path('villainteams/<int:pk>', views.VillainTeamDetail.as_view(), name='villainteam_detail'),
+    path('villainteams/<int:pk>/update', views.VillainTeamUpdate.as_view(), name='villainteam_update'),
+    path('villainteams/<int:pk>/delete', views.VillainTeamDelete.as_view(), name='villainteam_delete'),
 ]

@@ -104,5 +104,28 @@ class HeroTeamDelete(DeleteView):
     template_name = 'heroteam_delete_confirmation.html'
     success_url = 'home'
 
+class VillainTeamCreate(CreateView):
+    model = VillainTeam
+    fields = ['name', 'img', 'villains']
+    template_name = 'villainteam_create.html'
+    def get_success_url(self):
+        return reverse('villainteam_detail', kwargs={'pk': self.object.pk})
+
+class VillainTeamDetail(DetailView):
+    model = VillainTeam
+    template_name = 'villainteam_detail.html'
+
+class VillainTeamUpdate(UpdateView):
+    model = VillainTeam
+    fields = ['name', 'img', 'villains']
+    template_name = 'villainteam_update.html'
+    def get_success_url(self):
+        return reverse('villainteam_detail', kwargs= {'pk': self.object.pk})
+
+class VillainTeamDelete(DeleteView):
+    model = VillainTeam
+    template_name = 'villainteam_delete_confirmation.html'
+    success_url = 'home'
+
 
 
