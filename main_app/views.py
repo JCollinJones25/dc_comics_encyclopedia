@@ -69,3 +69,8 @@ class VillainUpdate(UpdateView):
     template_name = 'villain_update.html'
     def get_success_url(self):
         return reverse('villain_detail', kwargs= {'pk': self.object.pk})
+
+class VillainDelete(DeleteView):
+    model = Villain
+    template_name = 'villain_delete_confirmation.html'
+    success_url = '/villains/'
