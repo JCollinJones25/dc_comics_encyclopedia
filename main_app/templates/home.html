@@ -1,7 +1,10 @@
 {%extends 'base.html'%}
-{% block title %} Heroes - Home {% endblock %}
+{% block title %} DC Comics - Home {% endblock %}
 {% block content %}
     <a href="heroes">Heroes</a>
     <a href="villains">Villains</a>
-    <h1>Home page</h1>
+    {% for comic in comics %}
+        <h3>{{comic.title}}</h3>
+        <img src="{{comic.img}}" alt={{comic.title}}/>
+    {% endfor %}
 {% endblock %}

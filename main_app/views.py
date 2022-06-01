@@ -3,13 +3,18 @@ from django.views import View
 from django.views.generic.base import TemplateView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import DetailView
-from .models import Hero, Villain
+from .models import Hero, Villain, Comic
 from django.urls import reverse
+from django.shortcuts import redirect
 
 # Create your views here.
 
 class Home(TemplateView):
     template_name = 'home.html'
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['comics'] = Comic.objects.all()
+        return context
 
 class About(TemplateView):
     template_name = 'about.html'
@@ -74,3 +79,13 @@ class VillainDelete(DeleteView):
     model = Villain
     template_name = 'villain_delete_confirmation.html'
     success_url = '/villains/'
+
+class ComicAppearance(View):
+
+    def get(self, request, pk, hero_pk):
+        assoc = request.GET.get("assoc")
+        if assoc == 'remove':
+            Comic.objects.get(pk=pk).heroes.remove(hero_pk)
+        if assoc == 'add':
+            Comic.objects.get(pk=pk).heroes.add(hero_pk)
+        return redirect('home')

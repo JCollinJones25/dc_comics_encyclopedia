@@ -31,3 +31,17 @@ class Villain(models.Model):
 
     def __str__(self):
         return self.name
+
+    class Meta: 
+        ordering = ['name']
+
+class Comic(models.Model):
+
+    title = models.CharField(max_length=100)
+    img = models.CharField(max_length=500, default='https://cdn.europosters.eu/image/1300/posters/dc-comics-rebirth-i80856.jpg')
+    author = models.TextField(max_length=100, default='not entered')
+    year = models.CharField(max_length=20, default='TBD') 
+    heroes = models.ManyToManyField(Hero)
+
+    def __str__(self):
+        return self.title
