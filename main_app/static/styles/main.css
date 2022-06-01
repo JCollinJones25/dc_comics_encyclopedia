@@ -1,5 +1,5 @@
 body {
-    background-color: navy;
+    background-color: rgb(21, 21, 131);
     color: white;
 }
 
@@ -40,10 +40,15 @@ img {
 
 nav {
     display: flex;
-    padding: 30px;
     background-color: black;
     justify-content: space-evenly;
     font-size: larger;
+    align-items: center;
+}
+
+nav img {
+    width: 65px;
+    height: 65px;
 }
 
 a {
