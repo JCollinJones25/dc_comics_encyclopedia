@@ -89,3 +89,14 @@ class ComicAppearance(View):
         if assoc == 'add':
             Comic.objects.get(pk=pk).heroes.add(hero_pk)
         return redirect('home')
+
+class ComicCreate(CreateView):
+    model = Comic
+    fields = ['title', 'img', 'author', 'year', 'heroes']
+    template_name = 'comic_create.html'
+    def get_success_url(self):
+        return reverse('comic_detail', kwargs={'pk': self.object.pk})
+
+class ComicDetail(DetailView):
+    model = Comic
+    template_name = 'comic_detail.html'

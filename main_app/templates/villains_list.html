@@ -2,10 +2,10 @@
 {% block title %} Villains {% endblock %}
 {% block content %}
 <div class="add-new-container">
-    <div class="add-new">
-        <a href="{% url 'villain_create' %}">+</a>
-        </div>  
-    </div>  
+    <form action="{% url 'villain_create' %}">
+        <input class='add-new' type="submit" value="+"/>
+    </form>
+</div> 
     <div class="list-container">
         {% for villain in villains %}
         <div class="list-item">

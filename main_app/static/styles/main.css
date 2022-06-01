@@ -40,6 +40,7 @@ a {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    font-size: 12px;
 }
 
 .edit {
@@ -83,9 +84,7 @@ a {
     width: 35px;
     height: 35px;
     background-color: rgb(83, 212, 83);
-    text-align: center;
     align-items: center;
     justify-content: center;
     margin: 25px;
-    padding: 5px;
 }

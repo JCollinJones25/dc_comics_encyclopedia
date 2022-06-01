@@ -15,4 +15,6 @@ urlpatterns = [
     path('villain/<int:pk>/update', views.VillainUpdate.as_view(), name='villain_update'),
     path('villain/<int:pk>/delete', views.VillainDelete.as_view(), name='villain_delete'),
     path('comics/<int:pk>/heroes/<int:hero_pk>/villains/<int:villain_pk>/', views.ComicAppearance.as_view(), name='comic_appearance'),
+    path('comics/new', views.ComicCreate.as_view(), name='comic_create'),
+    path('comics/<int:pk>', views.ComicDetail.as_view(), name='comic_detail'),
 ]
