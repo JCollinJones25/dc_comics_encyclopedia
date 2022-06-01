@@ -9,6 +9,13 @@ img {
     object-fit: cover;
 }
 
+.hero-thumb {
+    border-radius: 25%;
+    width: 200px;
+    height: 250px;
+    margin: 5px;
+}
+
 .list-container {
     display: flex;
     flex-direction: row;
@@ -88,4 +95,6 @@ a {
     align-items: center;
     justify-content: center;
     margin: 25px;
+    color: white;
+    /* border-color: white; */
 }

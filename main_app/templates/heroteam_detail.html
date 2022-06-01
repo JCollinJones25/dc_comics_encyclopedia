@@ -5,18 +5,23 @@
     <h2>{{heroteam.name}}</h2>
     <img class="heroteam-img" src="{{heroteam.img}}" alt="{{heroteam.title}}"/>
     <p>Members -</p>
-    {% for hero in heroteam.heroes.all %}
-    <p>{{hero}}</p>
-    {% endfor %}
+    <div class="list-container">
+
+        {% for hero in heroteam.heroes.all %}
+        <a href="/heroes/{{hero.id}}"> <h2>{{hero.name}}</h2>
+            <img class="hero-thumb" src="{{hero.img}}" alt="{{hero.name}}"/>
+        </a>
+        {% endfor %}
+    </div>
     <div class="edit-delete">
         <div class='edit'>
             <a href="/heroteames/{{heroteam.id}}/update">
-                <p>Edit {{heroteam.title}}</p>
+                <p>Edit {{heroteam.name}}</p>
             </div>
         </a>
         <div class='delete'>
             <a href="/heroteams/{{heroteam.id}}/delete">
-                <p>Delete {{heroteam.title}}</p>
+                <p>Delete {{heroteam.name}}</p>
             </a>
         </div>
     </div>
