@@ -94,7 +94,7 @@ class HeroTeamDetail(DetailView):
 
 class HeroTeamUpdate(UpdateView):
     model = HeroTeam
-    fields = ['name', 'img', 'bio', 'abilities', 'affiliations', 'nemesis']
+    fields = ['name', 'img', 'heroes']
     template_name = 'heroteam_update.html'
     def get_success_url(self):
         return reverse('heroteam_detail', kwargs= {'pk': self.object.pk})
