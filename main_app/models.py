@@ -42,6 +42,7 @@ class Comic(models.Model):
     author = models.TextField(max_length=100, default='not entered')
     year = models.CharField(max_length=20, default='TBD') 
     heroes = models.ManyToManyField(Hero)
+    villains = models.ManyToManyField(Villain)
 
     def __str__(self):
         return self.title

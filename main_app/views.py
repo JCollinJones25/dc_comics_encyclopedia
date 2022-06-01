@@ -80,16 +80,6 @@ class VillainDelete(DeleteView):
     template_name = 'villain_delete_confirmation.html'
     success_url = '/villains/'
 
-class ComicAppearance(View):
-
-    def get(self, request, pk, hero_pk):
-        assoc = request.GET.get("assoc")
-        if assoc == 'remove':
-            Comic.objects.get(pk=pk).heroes.remove(hero_pk)
-        if assoc == 'add':
-            Comic.objects.get(pk=pk).heroes.add(hero_pk)
-        return redirect('home')
-
 class ComicCreate(CreateView):
     model = Comic
     fields = ['title', 'img', 'author', 'year', 'heroes']
