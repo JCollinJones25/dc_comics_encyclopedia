@@ -1,14 +1,18 @@
 {%extends 'base.html'%}
 {% block title %} Villains {% endblock %}
 {% block content %}
-    <a href="/">
-        <p>Back to Home </p>
-    </a>
-    <a href="{% url 'villain_create' %}">
-        <p>Add Villain </p>
-    </a>
-    {% for villain in villains %}
-        <a href="{{villain.id}}"> <h2>{{villain.name}}</h2></a>
-        <img class="hero-img" src="{{villain.img}}" alt="{{villain.name}}"/>
-    {% endfor %}
-{% endblock %}
+<div class="add-new-container">
+    <div class="add-new">
+        <a href="{% url 'villain_create' %}">+</a>
+        </div>  
+    </div>  
+    <div class="list-container">
+        {% for villain in villains %}
+        <div class="list-item">
+            <a href="{{villain.id}}"> <h2>{{villain.name}}</h2>
+            <img class="hero-img" src="{{villain.img}}" alt="{{villain.name}}"/>
+            </a>
+        </div>
+            {% endfor %}
+    </div>
+    {% endblock %}

@@ -1,27 +1,26 @@
 {%extends 'base.html'%}
 {% block title %} {{villain.name}} {% endblock %}
 {% block content %}
-    <a href="/villains">
-        <p>Back to Villain List</p>
-    </a>
-    <a href="/villain/{{villain.id}}/update">
-        <p>Edit {{villain.name}}</p>
-    </a>
-    <a href="/villain/{{villain.id}}/delete">
-        <p>Delete {{villain.name}}</p>
-    </a>
+<div class="details">
     <h2>{{villain.name}}</h2>
     <h3>{{villain.universe}}</h3>
-    <h3>Known Affiliations - {{villain.affiliations}}</h3>
     <img class="villain-img" src="{{villain.img}}" alt="{{villain.name}}"/>
     <p>{{villain.bio}}</p>
+    <p>Known Affiliations - {{villain.affiliations}}</p>
     <p>Abilities - {{villain.powers}}</p>
     <p>Nemesis - {{villain.nemesis}}</p>
-    <a href='/villaines/{{villain.id}}/update'>
-        <h4>Edit {{villain.name}}</h4>
-    </a>
-    <a href='/villaines/{{villain.id}}/delete'>
-        <h4>Delete {{villain.name}}</h4>
-    </a>
+    <div class="edit-delete">
+        <div class='edit'>
+            <a href="/villain/{{villain.id}}/update">
+                <p>Edit {{villain.name}}</p>
+            </div>
+        </a>
+        <div class='delete'>
+            <a href="/villain/{{villain.id}}/delete">
+                <p>Delete {{villain.name}}</p>
+            </a>
+        </div>
+    </div>
+</div>
     
 {% endblock %}

@@ -1,22 +1,27 @@
 {%extends 'base.html'%}
 {% block title %} {{hero.name}} {% endblock %}
 {% block content %}
-    <a href="/heroes">
-        <p>Back to Hero List</p>
-    </a>
+<div class="details">
     <h2>{{hero.name}}</h2>
     <h3>Alter Ego - {{hero.secret_identity}}</h3>
     <h3>{{hero.universe}}</h3>
-    <h3>Known Affiliations - {{hero.affiliations}}</h3>
     <img class="hero-img" src="{{hero.img}}" alt="{{hero.name}}"/>
     <p>{{hero.bio}}</p>
+    <p>Affiliations - {{hero.affiliations}}</p>
     <p>Abilities - {{hero.powers}}</p>
     <p>Villains - {{hero.villains}}</p>
-    <a href='/heroes/{{hero.id}}/update'>
-        <h4>Edit {{hero.name}}</h4>
-    </a>
-    <a href='/heroes/{{hero.id}}/delete'>
-        <h4>Delete {{hero.name}}</h4>
-    </a>
+    <div class="edit-delete">
+        <div class='edit'>
+            <a href="/heroes/{{hero.id}}/update">
+                <p>Edit {{hero.name}}</p>
+            </div>
+        </a>
+        <div class='delete'>
+            <a href="/heroes/{{hero.id}}/delete">
+                <p>Delete {{hero.name}}</p>
+            </a>
+        </div>
+    </div>
+</div>
     
 {% endblock %}

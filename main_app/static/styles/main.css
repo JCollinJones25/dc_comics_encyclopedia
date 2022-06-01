@@ -2,3 +2,90 @@ body {
     background-color: navy;
     color: white;
 }
+
+img {
+    max-width: 500px;
+    max-height: 500px;
+}
+
+.list-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: auto;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.list-item {
+    justify-content: center;
+    margin: 5px;
+    text-align: center;
+}
+
+nav {
+    display: flex;
+    padding: 30px;
+    background-color: black;
+    justify-content: space-evenly;
+    font-size: larger;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+.edit-delete {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.edit {
+    display: flex;
+    border-radius: 25%;
+    width: 75px;
+    height: 50px;
+    background-color: rgb(83, 212, 83);
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin: 25px;
+    padding: 5px;
+}
+
+.delete {
+    display: flex;
+    border-radius: 25%;
+    width: 75px;
+    height: 50px;
+    background-color: rgb(237, 85, 85);
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin: 25px;
+    padding: 5px;
+}
+
+.details {
+    text-align: center;
+}
+
+.add-new-container {
+    justify-content: flex-end;
+    display: flex;
+}
+
+.add-new {
+    display: flex;
+    border-radius: 25%;
+    width: 35px;
+    height: 35px;
+    background-color: rgb(83, 212, 83);
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin: 25px;
+    padding: 5px;
+}
