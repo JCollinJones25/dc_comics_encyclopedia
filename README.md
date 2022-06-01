@@ -12,3 +12,6 @@
 
 ## Stretch Goals
 - AUTH (Django)
+
+## Revisit
+- The relationships in the models could be fine-tuned. Heroes and Villains should be One-to-Many but I couldn't get Villain to be defined above the Villain class where the Hero class would set Villain as One-to-Many. 

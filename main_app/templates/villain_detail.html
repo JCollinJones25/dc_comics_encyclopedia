@@ -8,7 +8,12 @@
     <p>{{villain.bio}}</p>
     <p>Known Affiliations - {{villain.affiliations}}</p>
     <p>Abilities - {{villain.abilities}}</p>
-    <p>Nemesis - {{villain.nemesis}}</p>
+    <h3>Nemesis</h3>
+    <div class="list-container">
+        <a href="/heroes/{{villain.nemesis.id}}"> <h2>{{villain.nemesis.name}}</h2>
+            <img class="hero-thumb" src="{{villain.nemesis.img}}" alt="{{villain.nemesis.name}}"/>
+        </a>
+    </div>
     <div class="edit-delete">
         <div class='edit'>
             <a href="/villain/{{villain.id}}/update">
