@@ -9,9 +9,14 @@ from django.shortcuts import redirect, render
 # at top of file with other imports
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
+# Auth
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
+
 
 
 # Create your views here.
+
 
 class Home(TemplateView):
     template_name = 'home.html'
@@ -32,6 +37,7 @@ class HeroesList(TemplateView):
         context['heroes'] = Hero.objects.all()
         return context
 
+@method_decorator(login_required, name='dispatch')
 class HeroCreate(CreateView):
     model = Hero
     fields = ['name', 'secret_identity', 'img', 'bio', 'abilities', 'affiliations', 'villains']
@@ -39,10 +45,12 @@ class HeroCreate(CreateView):
     def get_success_url(self):
         return reverse('hero_detail', kwargs={'pk': self.object.pk})
 
+@method_decorator(login_required, name='dispatch')
 class HeroDetail(DetailView):
     model = Hero
     template_name = 'hero_detail.html'
 
+@method_decorator(login_required, name='dispatch')
 class HeroUpdate(UpdateView):
     model = Hero
     fields = ['name', 'secret_identity', 'img', 'bio', 'abilities', 'affiliations', 'villains']
@@ -50,6 +58,7 @@ class HeroUpdate(UpdateView):
     def get_success_url(self):
         return reverse('hero_detail', kwargs={'pk': self.object.pk})
 
+@method_decorator(login_required, name='dispatch')
 class HeroDelete(DeleteView):
     model = Hero
     template_name = 'hero_delete_confirmation.html'
@@ -62,10 +71,12 @@ class VillainsList(TemplateView):
         context['villains'] = Villain.objects.all()
         return context
 
+@method_decorator(login_required, name='dispatch')
 class VillainDetail(DetailView):
     model = Villain
     template_name = 'villain_detail.html'
 
+@method_decorator(login_required, name='dispatch')
 class VillainCreate(CreateView):
     model = Villain
     fields = ['name', 'img', 'bio', 'abilities', 'affiliations', 'nemesis']
@@ -73,6 +84,7 @@ class VillainCreate(CreateView):
     def get_success_url(self):
         return reverse('villain_detail', kwargs= {'pk': self.object.pk})
 
+@method_decorator(login_required, name='dispatch')
 class VillainUpdate(UpdateView):
     model = Villain
     fields = ['name', 'img', 'bio', 'abilities', 'affiliations', 'nemesis']
@@ -80,11 +92,13 @@ class VillainUpdate(UpdateView):
     def get_success_url(self):
         return reverse('villain_detail', kwargs= {'pk': self.object.pk})
 
+@method_decorator(login_required, name='dispatch')
 class VillainDelete(DeleteView):
     model = Villain
     template_name = 'villain_delete_confirmation.html'
     success_url = '/villains/'
 
+@method_decorator(login_required, name='dispatch')
 class HeroTeamCreate(CreateView):
     model = HeroTeam
     fields = ['name', 'img', 'heroes']
@@ -92,10 +106,12 @@ class HeroTeamCreate(CreateView):
     def get_success_url(self):
         return reverse('heroteam_detail', kwargs={'pk': self.object.pk})
 
+@method_decorator(login_required, name='dispatch')
 class HeroTeamDetail(DetailView):
     model = HeroTeam
     template_name = 'heroteam_detail.html'
 
+@method_decorator(login_required, name='dispatch')
 class HeroTeamUpdate(UpdateView):
     model = HeroTeam
     fields = ['name', 'img', 'heroes']
@@ -103,11 +119,13 @@ class HeroTeamUpdate(UpdateView):
     def get_success_url(self):
         return reverse('heroteam_detail', kwargs= {'pk': self.object.pk})
 
+@method_decorator(login_required, name='dispatch')
 class HeroTeamDelete(DeleteView):
     model = HeroTeam
     template_name = 'heroteam_delete_confirmation.html'
     success_url = 'home'
 
+@method_decorator(login_required, name='dispatch')
 class VillainTeamCreate(CreateView):
     model = VillainTeam
     fields = ['name', 'img', 'villains']
@@ -115,10 +133,12 @@ class VillainTeamCreate(CreateView):
     def get_success_url(self):
         return reverse('villainteam_detail', kwargs={'pk': self.object.pk})
 
+@method_decorator(login_required, name='dispatch')
 class VillainTeamDetail(DetailView):
     model = VillainTeam
     template_name = 'villainteam_detail.html'
 
+@method_decorator(login_required, name='dispatch')
 class VillainTeamUpdate(UpdateView):
     model = VillainTeam
     fields = ['name', 'img', 'villains']
@@ -126,6 +146,7 @@ class VillainTeamUpdate(UpdateView):
     def get_success_url(self):
         return reverse('villainteam_detail', kwargs= {'pk': self.object.pk})
 
+@method_decorator(login_required, name='dispatch')
 class VillainTeamDelete(DeleteView):
     model = VillainTeam
     template_name = 'villainteam_delete_confirmation.html'
@@ -145,7 +166,7 @@ class Signup(View):
         if form.is_valid():
             user = form.save()
             login(request, user)
-            return redirect("artist_list")
+            return redirect("home")
         else:
             context = {"form": form}
             return render(request, "registration/signup.html", context)
