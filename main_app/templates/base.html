@@ -16,6 +16,18 @@
     <a href="/">Teams</a>
     <a href="{% url 'heroes_list' %}">Heroes</a>
     <a href="{% url 'villains_list' %}">Villains</a>
+    <div class="auth">
+        {% if user.is_authenticated %}
+        <div class="navbar-menu navbar-end">
+            <span class="navbar-item">Welcome {{user.username}}</span>
+            <a class="navbar-item" href="{% url 'logout' %}">Logout</a>
+        </div>
+        {% else %}
+        <div class="navbar-menu navbar-end">
+            <a class="navbar-item" href="{% url 'login' %}">Login</a>
+        </div>
+        {% endif %}
+    </div>
 </nav>
 <body>
     {% block content %} {% endblock %}

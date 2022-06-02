@@ -119,3 +119,14 @@ a {
     justify-content: space-between;
     margin-top: 15px;
 }
+
+.auth {
+    border-left: solid;
+    border-left-color: white;
+    display: flex;
+    align-items: center;
+    text-align: right;
+    justify-content: right;
+    width: 105px;
+    height: 55px;
+}
