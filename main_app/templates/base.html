@@ -10,14 +10,16 @@
     <title>{% block title %} {% endblock %}</title>
 </head>
 <nav>
-    <a href="https://www.dccomics.com/characters">
-        <img src="https://i.pinimg.com/originals/cf/8b/23/cf8b2388dfcc1c8582e7828c799239ea.jpg" alt='dc comics logo'/>
-    </a>
-    <a href="/">Teams</a>
-    <a href="{% url 'heroes_list' %}">Heroes</a>
-    <a href="{% url 'villains_list' %}">Villains</a>
-    <div class="auth">
-        {% if user.is_authenticated %}
+    <div class="nav-links">
+        <a href="https://www.dccomics.com/characters">
+            <img src="https://i.pinimg.com/originals/cf/8b/23/cf8b2388dfcc1c8582e7828c799239ea.jpg" alt='dc comics logo'/>
+        </a>
+        <a href="/">Teams</a>
+        <a href="{% url 'heroes_list' %}">Heroes</a>
+        <a href="{% url 'villains_list' %}">Villains</a>
+    </div>
+        <div class="auth">
+            {% if user.is_authenticated %}
         <div class="navbar-menu navbar-end">
             <span class="navbar-item">Welcome {{user.username}}</span>
             <a class="navbar-item" href="{% url 'logout' %}">Logout</a>
@@ -25,6 +27,7 @@
         {% else %}
         <div class="navbar-menu navbar-end">
             <a class="navbar-item" href="{% url 'login' %}">Login</a>
+            <a class="navbar-item" href="{% url 'signup' %}">Sign Up</a>
         </div>
         {% endif %}
     </div>

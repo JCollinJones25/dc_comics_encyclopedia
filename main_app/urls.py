@@ -22,4 +22,5 @@ urlpatterns = [
     path('villainteams/<int:pk>', views.VillainTeamDetail.as_view(), name='villainteam_detail'),
     path('villainteams/<int:pk>/update', views.VillainTeamUpdate.as_view(), name='villainteam_update'),
     path('villainteams/<int:pk>/delete', views.VillainTeamDelete.as_view(), name='villainteam_delete'),
+    path('accounts/signup/', views.Signup.as_view(), name="signup")
 ]

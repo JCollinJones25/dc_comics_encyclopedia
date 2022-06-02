@@ -5,7 +5,11 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import DetailView
 from .models import Hero, Villain, HeroTeam, VillainTeam
 from django.urls import reverse
-from django.shortcuts import redirect
+from django.shortcuts import redirect, render
+# at top of file with other imports
+from django.contrib.auth import login
+from django.contrib.auth.forms import UserCreationForm
+
 
 # Create your views here.
 
@@ -129,3 +133,19 @@ class VillainTeamDelete(DeleteView):
 
 
 
+class Signup(View):
+    # show a form to fill out
+    def get(self, request):
+        form = UserCreationForm()
+        context = {"form": form}
+        return render(request, "registration/signup.html", context)
+    # on form ssubmit validate the form and login the user.
+    def post(self, request):
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return redirect("artist_list")
+        else:
+            context = {"form": form}
+            return render(request, "registration/signup.html", context)
