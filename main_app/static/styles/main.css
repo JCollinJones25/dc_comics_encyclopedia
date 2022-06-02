@@ -38,7 +38,6 @@ img {
     text-align: center;
 }
 
-
 a {
     color: white;
     text-decoration: none;
@@ -143,7 +142,6 @@ nav img {
     margin-right: 5px;
     display: flex;
     justify-content: space-evenly;
-    /* width: contain; */
 }
 
 .navbar-item {
